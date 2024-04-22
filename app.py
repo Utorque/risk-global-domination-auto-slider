@@ -4,6 +4,8 @@ import numpy as np
 from time import sleep
 
 from utils_detect_attack_mode import is_attack_mode
+from utils_get_win_chance import get_win_chance, setup_pytesseract
+
 
 def get_grayscale_screenshot(sc_width, sc_height):
     screen = np.array(ImageGrab.grab(bbox=(0,0,sc_width,sc_height)))
@@ -13,8 +15,14 @@ if __name__ == "__main__":
     screen_width = 1920
     screen_height = 1080
 
+    setup_pytesseract()
+
     while True:
         sleep(1)
         gray_screen = get_grayscale_screenshot(screen_width, screen_height)
-        print(is_attack_mode(gray_screen))
+        while is_attack_mode(gray_screen):
+            print(get_win_chance(gray_screen))
+            sleep(0.2)
+            gray_screen = get_grayscale_screenshot(screen_width, screen_height)
+
     

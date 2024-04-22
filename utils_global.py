@@ -18,7 +18,7 @@ def gradient_convolution(image_mat, kernel = None) -> cv2.typing.MatLike:
     
     return img_convolved
 
-def show_image(image_mat) -> None:
+def show_image(image_mat, name="Image") -> None:
     """
     Display an image from a matrix-like object.
 
@@ -26,10 +26,10 @@ def show_image(image_mat) -> None:
     - image_mat: An image represented as a matrix-like object (numpy ndarray).
     """
     # Create a window to display the image
-    cv2.namedWindow('Image', cv2.WINDOW_NORMAL)
+    cv2.namedWindow(name, cv2.WINDOW_NORMAL)
     
     # Display the image
-    cv2.imshow('Image', image_mat)
+    cv2.imshow(name, image_mat)
     
     # Wait for a key press and then destroy all OpenCV windows
     cv2.waitKey(0)
