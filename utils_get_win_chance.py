@@ -20,4 +20,4 @@ def get_win_chance(gray_screen: cv2.typing.MatLike) -> int:
         return int("".join([char for char in text if char.isdigit()]))
     except Exception as e:
         print(e)
-        return -1
+        return None
