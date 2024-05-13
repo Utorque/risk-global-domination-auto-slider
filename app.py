@@ -56,7 +56,7 @@ if __name__ == "__main__":
             print(win_chance)
             print(slider_pos)
             
-            while win_chance >= 100:
+            while win_chance >= 100: # moving left while 100%
                 move_slider(slider_pos, "left")
                 sleep(ATTACK_MODE_SLEEP)
                 gray_screen = get_grayscale_screenshot(screen_width, screen_height)
@@ -65,7 +65,7 @@ if __name__ == "__main__":
                 if win_chance is None: break
             if win_chance is None: continue
             
-            while win_chance < 100:
+            while win_chance < 100: # moving back to the right
                 slider_pos = (min(screen_width, slider_pos[0] + 5), slider_pos[1])
                 move_slider(slider_pos, "right")
                 sleep(ATTACK_MODE_SLEEP)

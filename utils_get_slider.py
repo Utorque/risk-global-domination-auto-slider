@@ -5,6 +5,9 @@ from utils_global import imread_grayscale
 SLIDER = imread_grayscale("pics/slider_02.jpg")
 
 def get_slider_pos(img, slider=SLIDER):
+    """
+    Finds and returns the coordinates of a slider in a game image
+    """
     img_edges = cv2.Canny(img, 50, 150)
     slider_edges = cv2.Canny(slider, 50, 150)
 

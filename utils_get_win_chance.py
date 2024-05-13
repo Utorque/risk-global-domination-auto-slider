@@ -6,6 +6,9 @@ def setup_pytesseract(tesseract_ocr_path = r'D:\Applications\Tesseract-OCR\tesse
     pytesseract.pytesseract.tesseract_cmd = tesseract_ocr_path
 
 def _get_win_chance_pic(img : cv2.typing.MatLike):
+    """
+    Returns the part of a game image where the win chance is
+    """
     h, w = img.shape
     top_y = int(h * 0.07)
     bottom_y = int(h * 0.125)
